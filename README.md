@@ -74,7 +74,7 @@ todo
 
 ---
 
-![Demonstração do Projeto](assets/screenshot.png)
+<p align="center"><img src="assets/screenshot.png" alt="Demonstração" width="500"></p>
 
 
 ## 📄 Licença
