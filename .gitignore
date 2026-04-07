@@ -1,1 +1,4 @@
 todo.exe
+.dart_tool/
+.packages
+build/
