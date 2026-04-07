@@ -74,7 +74,7 @@ todo
 
 ---
 
-`![Demonstração do Projeto](./assets/screenshot.png)`
+`![Demonstração do Projeto](assets/screenshot.png)`
 
 ## 📄 Licença
 Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
