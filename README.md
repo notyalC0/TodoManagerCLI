@@ -1,102 +1,108 @@
-<h1 align="center" style="color: #C792EA;">📝 Gerenciador de Tarefas CLI Interativo</h1>
+<h1 align="center" style="color: #C792EA;">📝 Interactive CLI Task Manager</h1>
+
+<p align="center">
+  <img src="https://img.shields.io/github/v/release/notyalC0/TodoManagerCLI?style=for-the-badge&color=C792EA" alt="Release">
+  <img src="https://img.shields.io/github/stars/notyalC0/TodoManagerCLI?style=for-the-badge&color=89DDFF" alt="Stars">
+  <img src="https://img.shields.io/badge/Dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white" alt="Dart">
+</p>
 
 <p align="center" style="color: #CDD6F4; font-size: 1.1em;">
-  Um gerenciador de tarefas moderno, interativo e altamente polido, desenvolvido inteiramente em
+  A modern, interactive, and highly polished task manager, developed entirely in
   <span style="color: #89DDFF; font-weight: bold;">Dart</span>.
 </p>
 
 <hr style="border-color: #5A6080;">
 
-<h2 style="color: #89DDFF;">🚀 Funcionalidades</h2>
+<h2 style="color: #89DDFF;">🚀 Features</h2>
 
 <ul style="color: #CDD6F4;">
-  <li><span style="color: #C792EA; font-weight: bold;">Navegação Interativa:</span> Navegue pela sua lista suavemente usando as <b>setas do teclado</b> (<span style="color: #89DDFF;">↑</span> e <span style="color: #89DDFF;">↓</span>).</li>
-  <li><span style="color: #C792EA; font-weight: bold;">Dashboard Visual:</span> Barra de progresso gráfica (<span style="color: #C3E88D;">█</span><span style="color: #5A6080;">░</span>), estatísticas em tempo real e paginação (6 tarefas por vez).</li>
-  <li><span style="color: #C792EA; font-weight: bold;">Sistema de Prioridades:</span> Classifique como <span style="color: #F07178;">Alta (!)</span>, <span style="color: #FFCB6B;">Média (–)</span> ou <span style="color: #89DDFF;">Baixa (↓)</span>.</li>
-  <li><span style="color: #C792EA; font-weight: bold;">Busca e Filtro:</span> Encontre tarefas rapidamente pelo título ou descrição.</li>
+  <li><span style="color: #C792EA; font-weight: bold;">Interactive Navigation:</span> Smoothly browse your list using the <b>arrow keys</b> (<span style="color: #89DDFF;">↑</span> and <span style="color: #89DDFF;">↓</span>).</li>
+  <li><span style="color: #C792EA; font-weight: bold;">Visual Dashboard:</span> Graphical progress bar (<span style="color: #C3E88D;">█</span><span style="color: #5A6080;">░</span>), real-time statistics, and pagination (6 tasks at a time).</li>
+  <li><span style="color: #C792EA; font-weight: bold;">Priority System:</span> Classify as <span style="color: #F07178;">High (!)</span>, <span style="color: #FFCB6B;">Medium (–)</span>, or <span style="color: #89DDFF;">Low (↓)</span>.</li>
+  <li><span style="color: #C792EA; font-weight: bold;">Search & Filter:</span> Find tasks quickly by title or description.</li>
 </ul>
 
 <hr style="border-color: #5A6080;">
 
-<h2 style="color: #89DDFF;">📦 Estrutura do Projeto</h2>
+<h2 style="color: #89DDFF;">📦 Project Structure</h2>
 
 <pre style="background-color: #0D0E14; padding: 16px; border-radius: 8px; color: #CDD6F4; line-height: 1.5;">
 📦 <span style="color: #C792EA; font-weight: bold;">TO-DO-LIST-DART-CLI</span>
-<span style="color: #5A6080;">┣ 📂</span> <span style="color: #5A6080;">.dart_tool/</span>      <span style="color: #5A6080;"><i># Arquivos internos e cache do Dart</i></span>
-<span style="color: #5A6080;">┣ 📂</span> <span style="color: #5A6080;">.vscode/</span>         <span style="color: #5A6080;"><i># Configurações do seu editor</i></span>
+<span style="color: #5A6080;">┣ 📂</span> <span style="color: #5A6080;">.dart_tool/</span>      <span style="color: #5A6080;"><i># Internal files and Dart cache</i></span>
+<span style="color: #5A6080;">┣ 📂</span> <span style="color: #5A6080;">.vscode/</span>         <span style="color: #5A6080;"><i># Editor settings</i></span>
 <span style="color: #5A6080;">┣ 📂</span> <span style="color: #89DDFF;">assets/</span>
-<span style="color: #5A6080;">┃ ┗ 🖼️</span> <span style="color: #CDD6F4;">screenshot.png</span> <span style="color: #5A6080;"><i># Imagens usadas nesta documentação</i></span>
+<span style="color: #5A6080;">┃ ┗ 🖼️</span> <span style="color: #CDD6F4;">screenshot.png</span> <span style="color: #5A6080;"><i># Images used in this documentation</i></span>
 <span style="color: #5A6080;">┣ 📂</span> <span style="color: #89DDFF;">bin/</span>
-<span style="color: #5A6080;">┃ ┗ 🎯</span> <span style="color: #C3E88D;">main.dart</span>      <span style="color: #5A6080;"><i># O coração do CLI: Interface e Lógica Principal</i></span>
+<span style="color: #5A6080;">┃ ┗ 🎯</span> <span style="color: #C3E88D;">main.dart</span>      <span style="color: #5A6080;"><i># The heart of the CLI: Interface and Main Logic</i></span>
 <span style="color: #5A6080;">┣ 📂</span> <span style="color: #89DDFF;">test/</span>
-<span style="color: #5A6080;">┃ ┗ 🧪</span> <span style="color: #CDD6F4;">test.dart</span>      <span style="color: #5A6080;"><i># Ambiente de testes unitários</i></span>
-<span style="color: #5A6080;">┣ 📄</span> <span style="color: #C792EA;">pubspec.yaml</span>     <span style="color: #5A6080;"><i># Configurações, versão e dependências (dart_console)</i></span>
-<span style="color: #5A6080;">┣ 📄</span> <span style="color: #CDD6F4;">pubspec.lock</span>     <span style="color: #5A6080;"><i># Travamento das versões das dependências</i></span>
-<span style="color: #5A6080;">┣ 📄</span> <span style="color: #CDD6F4;">README.md</span>        <span style="color: #5A6080;"><i># Esta documentação maravilhosa</i></span>
-<span style="color: #5A6080;">┗ 💾</span> <span style="color: #FFCB6B;">tarefas.json</span>     <span style="color: #5A6080;"><i># Seu banco de dados local com as tarefas salvas</i></span>
+<span style="color: #5A6080;">┃ ┗ 🧪</span> <span style="color: #CDD6F4;">test.dart</span>      <span style="color: #5A6080;"><i># Unit testing environment</i></span>
+<span style="color: #5A6080;">┣ 📄</span> <span style="color: #C792EA;">pubspec.yaml</span>     <span style="color: #5A6080;"><i># Settings, version, and dependencies (dart_console)</i></span>
+<span style="color: #5A6080;">┣ 📄</span> <span style="color: #CDD6F4;">pubspec.lock</span>     <span style="color: #5A6080;"><i># Dependency version locking</i></span>
+<span style="color: #5A6080;">┣ 📄</span> <span style="color: #CDD6F4;">README.md</span>        <span style="color: #5A6080;"><i># This wonderful documentation</i></span>
+<span style="color: #5A6080;">┗ 💾</span> <span style="color: #FFCB6B;">tarefas.json</span>     <span style="color: #5A6080;"><i># Your local database with saved tasks</i></span>
 </pre>
 
 <hr style="border-color: #5A6080;">
 
-<h2 style="color: #89DDFF;">🛠️ Instalação e Uso</h2>
+<h2 style="color: #89DDFF;">🛠️ Installation & Usage</h2>
 
-<h3 style="color: #CDD6F4;">1. Instalando as Dependências</h3>
-<p style="color: #CDD6F4;">No terminal, rode o comando abaixo na raiz do projeto:</p>
+<h3 style="color: #CDD6F4;">1. Installing Dependencies</h3>
+<p style="color: #CDD6F4;">In the terminal, run the command below in the project root:</p>
 <pre style="background-color: #0D0E14; padding: 12px; border-radius: 8px; color: #C3E88D;">dart pub get</pre>
 
-<h3 style="color: #CDD6F4;">2. Ativando o Comando Global</h3>
-<p style="color: #CDD6F4;">Para poder rodar o programa digitando apenas <code>todo</code> em qualquer pasta do seu computador:</p>
+<h3 style="color: #CDD6F4;">2. Activating the Global Command</h3>
+<p style="color: #CDD6F4;">To run the program by typing only <code>todo</code> in any folder on your computer:</p>
 <pre style="background-color: #0D0E14; padding: 12px; border-radius: 8px; color: #C3E88D;">dart pub global activate --source path .</pre>
 
-<h3 style="color: #CDD6F4;">3. Como Usar</h3>
-<p style="color: #CDD6F4;">Execute o comando abaixo em qualquer terminal para iniciar a interface:</p>
+<h3 style="color: #CDD6F4;">3. How to Use</h3>
+<p style="color: #CDD6F4;">Run the command below in any terminal to start the interface:</p>
 <pre style="background-color: #0D0E14; padding: 12px; border-radius: 8px; color: #89DDFF; font-weight: bold;">todo</pre>
 
 <hr style="border-color: #5A6080;">
 
-<h2 style="color: #89DDFF;">⌨️ Controles e Atalhos</h2>
-<p style="color: #CDD6F4;">Navegue livremente sem precisar apertar <code>Enter</code> a cada passo:</p>
+<h2 style="color: #89DDFF;">⌨️ Controls & Shortcuts</h2>
+<p style="color: #CDD6F4;">Navigate freely without having to press <code>Enter</code> at every step:</p>
 <ul style="color: #CDD6F4;">
-  <li><span style="color: #C792EA;">↑ / ↓</span> : <b>Mover o cursor</b> pela lista de tarefas.</li>
-  <li><span style="color: #C792EA;">Espaço</span> : <b>Check/Uncheck</b> (Alterna o status da tarefa selecionada).</li>
-  <li><span style="color: #C792EA;">a</span> : <b>Adicionar</b> nova tarefa (título, descrição e prioridade).</li>
-  <li><span style="color: #C792EA;">e</span> : <b>Editar</b> a tarefa selecionada (pressione <code>:q</code> no título para cancelar).</li>
-  <li><span style="color: #C792EA;">d</span> : <b>Deletar</b> a tarefa selecionada (com confirmação de segurança).</li>
-  <li><span style="color: #C792EA;">f</span> : <b>Filtrar/Buscar</b> tarefas ativas.</li>
-  <li><span style="color: #C792EA;">q ou Esc</span> : <b>Sair</b> (Os dados são salvos automaticamente).</li>
+  <li><kbd>↑</kbd> / <kbd>↓</kbd> : <b>Move cursor</b> through the task list.</li>
+  <li><kbd>Space</kbd> : <b>Check/Uncheck</b> (Toggles selected task status).</li>
+  <li><kbd>a</kbd> : <b>Add</b> new task (title, description, and priority).</li>
+  <li><kbd>e</kbd> : <b>Edit</b> selected task (press <code>:q</code> in the title to cancel).</li>
+  <li><kbd>d</kbd> : <b>Delete</b> selected task (with safety confirmation).</li>
+  <li><kbd>f</kbd> : <b>Filter/Search</b> active tasks.</li>
+  <li><kbd>q</kbd> or <kbd>Esc</kbd> : <b>Exit</b> (Data is saved automatically).</li>
 </ul>
 
 <hr style="border-color: #5A6080;">
 
 <p align="center">
-  <img src="assets/screenshot.png" alt="Demonstração do App no Terminal" width="600" style="border-radius: 8px; border: 2px solid #5A6080;">
+  <img src="assets/screenshot.png" alt="App Demo in Terminal" width="600" style="border-radius: 8px; border: 2px solid #5A6080;">
 </p>
 
 <hr style="border-color: #5A6080;">
 
-<h2 style="color: #89DDFF;">🤝 Uso do Projeto e Contribuições</h2>
+<h2 style="color: #89DDFF;">🤝 Project Usage & Contributions</h2>
 <p style="color: #CDD6F4;">
-  Este é um projeto de código aberto! Sinta-se à vontade para fazer um <b>fork</b>, modificar o código para suas necessidades ou enviar um <b>Pull Request</b> com novas funcionalidades.
+  This is an open-source project! Feel free to <b>fork</b>, modify the code for your needs, or send a <b>Pull Request</b> with new features.
 </p>
 
-<p style="color: #CDD6F4;">Para rodar o projeto em modo de desenvolvimento (sem precisar ativar globalmente):</p>
+<p style="color: #CDD6F4;">To run the project in development mode (without activating globally):</p>
 <pre style="background-color: #0D0E14; padding: 12px; border-radius: 8px; color: #C3E88D;">dart run bin/main.dart</pre>
 
 <ul style="color: #CDD6F4;">
-  <li>Reporte bugs na aba <span style="color: #C792EA;">Issues</span>.</li>
-  <li>Sugira novas ideias para a interface do terminal.</li>
-  <li>Melhore a organização do código ou adicione novos testes.</li>
+  <li>Report bugs in the <span style="color: #C792EA;">Issues</span> tab.</li>
+  <li>Suggest new ideas for the terminal interface.</li>
+  <li>Improve code organization or add new tests.</li>
 </ul>
 
 <hr style="border-color: #5A6080;">
 
-<h2 style="color: #89DDFF;">📄 Licença</h2>
+<h2 style="color: #89DDFF;">📄 License</h2>
 <p style="color: #CDD6F4;">
-  Este projeto está sob a licença <b>MIT</b>. Isso significa que você é livre para usar, copiar, modificar, mesclar, publicar, distribuir, sublicenciar e/ou vender cópias do software, desde que inclua o aviso de direitos autorais original e a permissão da licença.
+  This project is under the <b>MIT</b> license. This means you are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, provided you include the original copyright notice and license permission.
 </p>
-<p style="color: #CDD6F4;">Consulte o arquivo <code style="color: #FFCB6B;">LICENSE</code> para ler os termos completos.</p>
+<p style="color: #CDD6F4;">Check the <code style="color: #FFCB6B;">LICENSE</code> file to read the full terms.</p>
 
 <br>
 <p align="center" style="color: #5A6080; font-size: 0.9em;">
-  Desenvolvido por <b>notyalC</b> 🚀
+  Developed by <b>notyalC</b> 🚀
 </p>
