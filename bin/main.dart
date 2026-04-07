@@ -2,10 +2,7 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:dart_console/dart_console.dart';
 
-// ╔══════════════════════════════╗
-//   TEMA — cores ANSI
-// ╚══════════════════════════════╝
-abstract class T {
+abstract class T { // theme
   static const r  = '\x1B[0m';         // reset
   static const b  = '\x1B[1m';         // bold
   static const d  = '\x1B[2m';         // dimmed
@@ -24,9 +21,6 @@ abstract class T {
   static const bgDark = '\x1B[48;2;13;14;20m';  // fundo total #0D0E14
 }
 
-// ╔══════════════════════════════╗
-//   MODELO
-// ╚══════════════════════════════╝
 class TodoManager {
   List<Map<String, dynamic>> _raw = [];
 
@@ -79,9 +73,6 @@ class TodoManager {
   }
 }
 
-// ╔══════════════════════════════╗
-//   MAIN
-// ╚══════════════════════════════╝
 void main() {
   final console = Console();
   final manager = TodoManager();
@@ -171,9 +162,6 @@ void main() {
   print('${T.grn}${T.b}  ✓ Dados salvos. Até logo!${T.r}\n');
 }
 
-// ╔══════════════════════════════╗
-//   RENDER PRINCIPAL
-// ╚══════════════════════════════╝
 void _renderMain(Console console, TodoManager m, int cursor) {
   console.clearScreen();
   console.resetCursorPosition();
@@ -182,7 +170,6 @@ void _renderMain(Console console, TodoManager m, int cursor) {
   final semana = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb'][now.weekday % 7];
   final data   = '$semana, ${_dd(now.day)} ${_mes(now.month)}  ${_dd(now.hour)}:${_dd(now.minute)}';
 
-  // — header box —
   _ln('');
   _ln('  ${T.fg2}╭──────────────────────────────────────────────────────╮${T.r}');
   _ln('  ${T.fg2}│${T.r}  ${T.acc}${T.b}◈  TAREFAS${T.r}${' ' * 32}${T.fg1}$data  ${T.fg2}│${T.r}');
@@ -200,7 +187,6 @@ void _renderMain(Console console, TodoManager m, int cursor) {
   _ln('  ${T.fg2}┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄${T.r}');
   _ln('');
 
-  // — lista com janela deslizante —
   const janela = 6;
   int inicio = 0;
   if (m.total > janela) {
@@ -234,7 +220,6 @@ void _renderMain(Console console, TodoManager m, int cursor) {
     final fgTit   = done ? '${T.fg2}$titulo${T.r}' : '${T.fg0}${T.b}$titulo${T.r}';
     final dtStr   = dt != null ? '${T.fg2}${_dd(dt.day)}/${_dd(dt.month)}${T.r}' : '     ';
 
-    // padding pra alinhar
     final pad = 28 - titulo.length;
 
     stdout.write('  $pointer $bgLinha $icone  ${corPrio}$tagPrio${T.r}$fgTit${' ' * pad}  $dtStr${T.r}\n');
@@ -268,9 +253,6 @@ void _renderMain(Console console, TodoManager m, int cursor) {
   );
 }
 
-// ╔══════════════════════════════╗
-//   TELA — ADICIONAR
-// ╚══════════════════════════════╝
 void _telaAdicionar(Console console, TodoManager m) {
   console.clearScreen();
   console.resetCursorPosition();
@@ -295,9 +277,6 @@ void _telaAdicionar(Console console, TodoManager m) {
   _pausar(console);
 }
 
-// ╔══════════════════════════════╗
-//   TELA — EDITAR
-// ╚══════════════════════════════╝
 void _telaEditar(Console console, TodoManager m, int index) {
   final t = m.tarefas[index];
   console.clearScreen();
@@ -324,9 +303,6 @@ void _telaEditar(Console console, TodoManager m, int index) {
   _pausar(console);
 }
 
-// ╔══════════════════════════════╗
-//   TELA — BUSCAR
-// ╚══════════════════════════════╝
 void _telaBuscar(Console console, TodoManager m) {
   console.clearScreen();
   console.resetCursorPosition();
@@ -365,9 +341,6 @@ void _telaBuscar(Console console, TodoManager m) {
   console.readLine();
 }
 
-// ╔══════════════════════════════╗
-//   TELA — CONFIRMAR DELETE
-// ╚══════════════════════════════╝
 bool _confirmarDelete(Console console, String titulo) {
   console.clearScreen();
   console.resetCursorPosition();
@@ -381,9 +354,6 @@ bool _confirmarDelete(Console console, String titulo) {
   return resp == 's';
 }
 
-// ╔══════════════════════════════╗
-//   HELPERS
-// ╚══════════════════════════════╝
 void _ln(String s, {bool newline = true}) {
   if (newline) {
     stdout.writeln(s);
@@ -417,9 +387,6 @@ String _mes(int m) => [
   'jul', 'ago', 'set', 'out', 'nov', 'dez'
 ][m];
 
-// ╔══════════════════════════════╗
-//   PERSISTÊNCIA
-// ╚══════════════════════════════╝
 String _getPath() {
   final home = Platform.environment['HOME'] ??
       Platform.environment['USERPROFILE'] ?? '.';
