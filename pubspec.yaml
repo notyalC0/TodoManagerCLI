@@ -1,8 +1,11 @@
-name: meu_todo_cli
-description: CLI de tarefas em Dart
+name: meu_todo
+description: Um gerenciador de tarefas para o terminal.
 version: 1.0.0
+executables:
+  todo: main
 environment:
-  sdk: '>=2.19.6 <3.0.0'
-
+  sdk: ">=2.19.6 <3.0.0"
 dev_dependencies:
   test: ^1.24.0
+dependencies:
+  dart_console: ^1.1.2
