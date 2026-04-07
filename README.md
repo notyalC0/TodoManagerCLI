@@ -81,4 +81,4 @@ todo
 Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
 
 ---
-Desenvolvido por **[notyalC]** 🚀
+Desenvolvido por **notyalC** 🚀
