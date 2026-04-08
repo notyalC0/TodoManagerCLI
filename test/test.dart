@@ -1,4 +1,4 @@
-import 'package:meu_todo/logic/todo_manager.dart';
+import 'package:TodoListManagerCLI/logic/todo_manager.dart';
 import 'package:test/test.dart';
 
 void main() {

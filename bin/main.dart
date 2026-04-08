@@ -1,8 +1,8 @@
 import 'package:dart_console/dart_console.dart';
-import 'package:meu_todo/core/database.dart';
-import 'package:meu_todo/core/theme.dart';
-import 'package:meu_todo/logic/todo_manager.dart';
-import 'package:meu_todo/ui/render.dart';
+import 'package:TodoListManagerCLI/core/database.dart';
+import 'package:TodoListManagerCLI/core/theme.dart';
+import 'package:TodoListManagerCLI/logic/todo_manager.dart';
+import 'package:TodoListManagerCLI/ui/render.dart';
 
 void main() {
   final console = Console();

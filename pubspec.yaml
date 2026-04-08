@@ -1,4 +1,4 @@
-name: meu_todo
+name: TodoListManagerCLI
 description: Um gerenciador de tarefas para o terminal.
 version: 1.0.0
 executables:
