@@ -20,6 +20,8 @@
   <li><span style="color: #C792EA; font-weight: bold;">Visual Dashboard:</span> Graphical progress bar (<span style="color: #C3E88D;">█</span><span style="color: #5A6080;">░</span>), real-time statistics, and pagination (6 tasks at a time).</li>
   <li><span style="color: #C792EA; font-weight: bold;">Priority System:</span> Classify as <span style="color: #F07178;">High (!)</span>, <span style="color: #FFCB6B;">Medium (–)</span>, or <span style="color: #89DDFF;">Low (↓)</span>.</li>
   <li><span style="color: #C792EA; font-weight: bold;">Search & Filter:</span> Find tasks quickly by title or description.</li>
+  <li><span style="color: #C792EA; font-weight: bold;">Task Details:</span> View full task information in a dedicated details view.</li>
+  <li><span style="color: #C792EA; font-weight: bold;">Interactive Search Results:</span> After searching, navigate results and select a task to view or edit directly.</li>
 </ul>
 
 <hr style="border-color: #5A6080;">
@@ -34,6 +36,16 @@
 <span style="color: #5A6080;">┃ ┗ 🖼️</span> <span style="color: #CDD6F4;">screenshot.png</span> <span style="color: #5A6080;"><i># Images used in this documentation</i></span>
 <span style="color: #5A6080;">┣ 📂</span> <span style="color: #89DDFF;">bin/</span>
 <span style="color: #5A6080;">┃ ┗ 🎯</span> <span style="color: #C3E88D;">main.dart</span>      <span style="color: #5A6080;"><i># The heart of the CLI: Interface and Main Logic</i></span>
+<span style="color: #5A6080;">┣ 📂</span> <span style="color: #89DDFF;">lib/</span>
+<span style="color: #5A6080;">┃ ┣ 📂</span> <span style="color: #89DDFF;">core/</span>
+<span style="color: #5A6080;">┃ ┃ ┗ 📄</span> <span style="color: #CDD6F4;">database.dart</span>
+<span style="color: #5A6080;">┃ ┃ ┗ 📄</span> <span style="color: #CDD6F4;">theme.dart</span>
+<span style="color: #5A6080;">┃ ┣ 📂</span> <span style="color: #89DDFF;">logic/</span>
+<span style="color: #5A6080;">┃ ┃ ┗ 📄</span> <span style="color: #CDD6F4;">todo_manager.dart</span>
+<span style="color: #5A6080;">┃ ┣ 📂</span> <span style="color: #89DDFF;">models/</span>
+<span style="color: #5A6080;">┃ ┃ ┗ 📄</span> <span style="color: #CDD6F4;">tasks.dart</span>
+<span style="color: #5A6080;">┃ ┣ 📂</span> <span style="color: #89DDFF;">ui/</span>
+<span style="color: #5A6080;">┃ ┃ ┗ 📄</span> <span style="color: #CDD6F4;">render.dart</span>
 <span style="color: #5A6080;">┣ 📂</span> <span style="color: #89DDFF;">test/</span>
 <span style="color: #5A6080;">┃ ┗ 🧪</span> <span style="color: #CDD6F4;">test.dart</span>      <span style="color: #5A6080;"><i># Unit testing environment</i></span>
 <span style="color: #5A6080;">┣ 📄</span> <span style="color: #C792EA;">pubspec.yaml</span>     <span style="color: #5A6080;"><i># Settings, version, and dependencies (dart_console)</i></span>
@@ -73,7 +85,17 @@
   <li><kbd>q</kbd> or <kbd>Esc</kbd> : <b>Exit</b> (Data is saved automatically).</li>
 </ul>
 
+<p style="color: #CDD6F4;">Ao usar <code>f</code> para filtrar/buscar, os resultados são navegáveis com as setas <kbd>↑</kbd>/<kbd>↓</kbd>; pressione <kbd>Enter</kbd> para ver os detalhes completos da tarefa selecionada ou <kbd>e</kbd> para editar diretamente a tarefa a partir dos resultados.</p>
+
 <hr style="border-color: #5A6080;">
+
+<h2 style="color: #89DDFF;">📝 Changelog</h2>
+<ul style="color: #CDD6F4;">
+  <li><b>08/04/2026 — Atualização:</b> Modularização do projeto (divisão em <code>lib/core</code>, <code>lib/logic</code>, <code>lib/models</code> e <code>lib/ui</code>).</li>
+  <li><b>08/04/2026 — Atualização:</b> Adicionada a visualização de detalhes da tarefa (detalhes completos acessíveis via <kbd>Enter</kbd>).</li>
+  <li><b>08/04/2026 — Atualização:</b> Busca aprimorada — resultados navegáveis, com possibilidade de selecionar e editar tarefas diretamente a partir dos resultados.</li>
+  <li><b>Dependências:</b> Nenhuma dependência nova introduzida nesta atualização.</li>
+</ul>
 
 <p align="center">
   <img src="assets/screenshot.png" alt="App Demo in Terminal" width="600" style="border-radius: 8px; border: 2px solid #5A6080;">
