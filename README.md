@@ -69,6 +69,7 @@
   <li><kbd>e</kbd> : <b>Edit</b> selected task (press <code>:q</code> in the title to cancel).</li>
   <li><kbd>d</kbd> : <b>Delete</b> selected task (with safety confirmation).</li>
   <li><kbd>f</kbd> : <b>Filter/Search</b> active tasks.</li>
+  <li><kbd>Enter</kbd> : <b>Details</b> selected task.</li>
   <li><kbd>q</kbd> or <kbd>Esc</kbd> : <b>Exit</b> (Data is saved automatically).</li>
 </ul>
 
