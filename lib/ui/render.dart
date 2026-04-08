@@ -75,8 +75,7 @@ void renderMain(Console console, TodoManager m, int cursor) {
     final bgLinha = sel ? T.bgSel : '';
     final fgTit =
         done ? '${T.fg2}$titulo${T.r}' : '${T.fg0}${T.b}$titulo${T.r}';
-    final dtStr =
-        dt != null ? '${T.fg2}${_dd(dt.day)}/${_dd(dt.month)}${T.r}' : '     ';
+    final dtStr = '${T.fg2}${_dd(dt.day)}/${_dd(dt.month)}${T.r}';
 
     final pad = 28 - titulo.length;
 
