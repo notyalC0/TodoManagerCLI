@@ -9,7 +9,23 @@
 </p>
 
 <p align="center">
-  <img src="assets/screenshot.png" alt="App demo in terminal" width="600">
+  <img src="assets/home.png" alt="Home screen" width="600">
+</p>
+
+<p align="center">
+  <img src="assets/details.png" alt="Details screen" width="600">
+</p>
+
+<p align="center">
+  <img src="assets/add.png" alt="Add screen" width="600">
+</p>
+
+<p align="center">
+  <img src="assets/delete.png" alt="delete feature" width="600">
+</p>
+
+<p align="center">
+  <img src="assets/search.png" alt="search screen" width="600">
 </p>
 
 ---

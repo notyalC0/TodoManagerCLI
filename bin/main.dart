@@ -4,7 +4,14 @@ import 'package:TodoListManagerCLI/core/theme.dart';
 import 'package:TodoListManagerCLI/logic/todo_manager.dart';
 import 'package:TodoListManagerCLI/ui/render.dart';
 
-void main() {
+void main(List<String> arguments) {
+  const String version = '1.1.0'; 
+
+  if (arguments.contains('--version') || arguments.contains('-v')) {
+    print('TodoManagerCLI version: $version');
+    return; // Encerra a execução após mostrar a versão
+  }
+
   final console = Console();
   final manager = TodoManager();
   manager.carregar(carregarArquivo());
