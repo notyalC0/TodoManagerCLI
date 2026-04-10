@@ -3,7 +3,7 @@
 <p align="center">A modern, keyboard-driven task manager built entirely in Dart.</p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.1.0-C792EA?style=for-the-badge" alt="Version">
+  <img src="https://img.shields.io/badge/version-1.1.1-C792EA?style=for-the-badge" alt="Version">
   <img src="https://img.shields.io/badge/Dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white" alt="Dart">
   <img src="https://img.shields.io/badge/license-MIT-C3E88D?style=for-the-badge" alt="License">
 </p>

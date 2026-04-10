@@ -11,13 +11,13 @@ void renderMain(Console console, TodoManager m, int cursor) {
 
   final now = DateTime.now();
   final semana =
-      ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb'][now.weekday % 7];
+      ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'][now.weekday % 7];
   final data =
       '$semana, ${_dd(now.day)} ${_mes(now.month)}  ${_dd(now.hour)}:${_dd(now.minute)}';
 
   _ln('');
   _ln('  ${T.fg2}╭──────────────────────────────────────────────────────╮${T.r}');
-  _ln('  ${T.fg2}│${T.r}  ${T.acc}${T.b}◈  TAREFAS${T.r}${' ' * 32}${T.fg1}$data  ${T.fg2}│${T.r}');
+  _ln('  ${T.fg2}│${T.r}  ${T.acc}${T.b}◈  Tasks${T.r}${' ' * 32}${T.fg1}$data  ${T.fg2}│${T.r}');
 
   if (m.total > 0) {
     final preenchido = (m.pct * 20).round();
@@ -26,7 +26,7 @@ void renderMain(Console console, TodoManager m, int cursor) {
     final pctStr = '${(m.pct * 100).round()}%';
     _ln('  ${T.fg2}│${T.r}  $barra  ${T.fg1}${m.concluidas}/${m.total}${T.r}  ${T.grn}${T.b}$pctStr${T.r}${' ' * (m.pct < 1 ? 27 : 26)}${T.fg2}│${T.r}');
   } else {
-    _ln('  ${T.fg2}│${T.r}  ${T.fg1}nenhuma tarefa. aperte ${T.acc}a${T.fg1} para adicionar.${T.r}${' ' * 11}${T.fg2}│${T.r}');
+    _ln('  ${T.fg2}│${T.r}  ${T.fg1}no tasks. press ${T.acc}a${T.fg1} to add.${T.r}${' ' * 11}${T.fg2}│${T.r}');
   }
   _ln('  ${T.fg2}╰──────────────────────────────────────────────────────╯${T.r}');
   _ln('');
@@ -43,7 +43,7 @@ void renderMain(Console console, TodoManager m, int cursor) {
   final fim = (inicio + janela > m.total) ? m.total : inicio + janela;
 
   if (inicio > 0) {
-    _ln('  ${T.fg2}  ↑ $inicio acima...${T.r}');
+    _ln('  ${T.fg2}  ↑ $inicio above...${T.r}');
   } else {
     _ln('');
   }
@@ -93,47 +93,47 @@ void renderMain(Console console, TodoManager m, int cursor) {
   }
 
   if (fim < m.total) {
-    _ln('  ${T.fg2}  ↓ ${m.total - fim} abaixo...${T.r}');
+    _ln('  ${T.fg2}  ↓ ${m.total - fim} below...${T.r}');
   } else {
     _ln('');
   }
 
   _ln('');
   _ln('  ${T.fg2}┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄${T.r}');
-  stdout.write('  ${T.fg2}↑↓${T.r} mover  '
+  stdout.write('  ${T.fg2}↑↓${T.r} move  '
       '${T.acc}spc${T.r} ${T.fg1}check${T.r}  '
       '${T.acc}a${T.r} ${T.fg1}add${T.r}  '
-      '${T.acc}e${T.r} ${T.fg1}editar${T.r}  '
+      '${T.acc}e${T.r} ${T.fg1}edit${T.r}  '
       '${T.acc}d${T.r} ${T.fg1}del${T.r}  '
-      '${T.acc}f${T.r} ${T.fg1}buscar${T.r}  '
-      '${T.acc}ent${T.r} ${T.fg1}detalhes${T.r}  '
-      '${T.acc}q${T.r} ${T.fg1}sair${T.r}\n');
+      '${T.acc}f${T.r} ${T.fg1}search${T.r}  '
+      '${T.acc}ent${T.r} ${T.fg1}details${T.r}  '
+      '${T.acc}q${T.r} ${T.fg1}quit${T.r}\n');
 }
 
 void telaAdicionar(Console console, TodoManager m) {
   console.clearScreen();
   console.resetCursorPosition();
   _ln('');
-  _ln('  ${T.acc}${T.b}╭─ nova tarefa${T.r}');
+  _ln('  ${T.acc}${T.b}╭─ new task${T.r}');
   _ln('  ${T.fg2}│${T.r}');
-  _ln('  ${T.fg2}│${T.r}  ${T.fg1}título${T.r}     ${T.cyn}▸${T.r}  ',
+  _ln('  ${T.fg2}│${T.r}  ${T.fg1}title${T.r}     ${T.cyn}▸${T.r}  ',
       newline: false);
   final titulo = (console.readLine()?.trim()) ?? '';
   if (titulo.isEmpty) return;
 
-  _ln('  ${T.fg2}│${T.r}  ${T.fg1}descrição${T.r}  ${T.cyn}▸${T.r}  ',
+  _ln('  ${T.fg2}│${T.r}  ${T.fg1}description${T.r}  ${T.cyn}▸${T.r}  ',
       newline: false);
   final desc = (console.readLine()?.trim()) ?? '';
 
   _ln('  ${T.fg2}│${T.r}');
-  _ln('  ${T.fg2}│${T.r}  ${T.fg1}prioridade${T.r}  ${T.cyn}▸${T.r}  ${T.fg2}[1]${T.r} ${T.red}alta${T.r}  ${T.fg2}[2]${T.r} ${T.yel}média${T.r}  ${T.fg2}[3]${T.r} ${T.cyn}baixa${T.r}  ${T.fg1}[Enter=3]${T.r}  ',
+  _ln('  ${T.fg2}│${T.r}  ${T.fg1}priority${T.r}  ${T.cyn}▸${T.r}  ${T.fg2}[1]${T.r} ${T.red}high${T.r}  ${T.fg2}[2]${T.r} ${T.yel}medium${T.r}  ${T.fg2}[3]${T.r} ${T.cyn}low${T.r}  ${T.fg1}[Enter=3]${T.r}  ',
       newline: false);
   final pInput = (console.readLine()?.trim()) ?? '';
   final prio = int.tryParse(pInput) ?? 3;
 
   _ln('  ${T.fg2}│${T.r}');
   m.adicionar(titulo, desc, prio.clamp(1, 3));
-  _ln('  ${T.grn}${T.b}╰─ ✓ tarefa adicionada!${T.r}');
+  _ln('  ${T.grn}${T.b}╰─ ✓ task added!${T.r}');
   pausar(console);
 }
 
@@ -142,27 +142,27 @@ void telaEditar(Console console, TodoManager m, int index) {
   console.clearScreen();
   console.resetCursorPosition();
   _ln('');
-  _ln('  ${T.yel}${T.b}╭─ editar:${T.r} ${T.fg0}${_trunc(t.titulo, 30)}${T.r}');
-  _ln('  ${T.fg2}│  deixe vazio para manter  ·  :q no título para cancelar${T.r}');
+  _ln('  ${T.yel}${T.b}╭─ edit:${T.r} ${T.fg0}${_trunc(t.titulo, 30)}${T.r}');
+  _ln('  ${T.fg2}│  leave empty to keep  ·  :q in title to cancel${T.r}');
   _ln('  ${T.fg2}│${T.r}');
-  _ln('  ${T.fg2}│${T.r}  ${T.fg1}título${T.r}     ${T.cyn}▸${T.r}  ',
+  _ln('  ${T.fg2}│${T.r}  ${T.fg1}title${T.r}     ${T.cyn}▸${T.r}  ',
       newline: false);
   final nt = (console.readLine()?.trim()) ?? '';
   if (nt == ':q') return;
 
-  _ln('  ${T.fg2}│${T.r}  ${T.fg1}descrição${T.r}  ${T.cyn}▸${T.r}  ',
+  _ln('  ${T.fg2}│${T.r}  ${T.fg1}description${T.r}  ${T.cyn}▸${T.r}  ',
       newline: false);
   final nd = (console.readLine()?.trim()) ?? '';
 
   final prioAtual = t.prioridade;
-  _ln('  ${T.fg2}│${T.r}  ${T.fg1}prioridade${T.r} ${T.cyn}▸${T.r}  ${T.fg2}[1]${T.r} ${T.red}alta${T.r}  ${T.fg2}[2]${T.r} ${T.yel}média${T.r}  ${T.fg2}[3]${T.r} ${T.cyn}baixa${T.r}  ${T.fg1}[Enter=$prioAtual]${T.r}  ',
+  _ln('  ${T.fg2}│${T.r}  ${T.fg1}priority${T.r} ${T.cyn}▸${T.r}  ${T.fg2}[1]${T.r} ${T.red}high${T.r}  ${T.fg2}[2]${T.r} ${T.yel}medium${T.r}  ${T.fg2}[3]${T.r} ${T.cyn}low${T.r}  ${T.fg1}[Enter=$prioAtual]${T.r}  ',
       newline: false);
   final pInput = (console.readLine()?.trim()) ?? '';
   final novaP = (int.tryParse(pInput) ?? prioAtual).clamp(1, 3);
 
   m.editar(t.id, nt, nd, novaP);
   _ln('  ${T.fg2}│${T.r}');
-  _ln('  ${T.grn}${T.b}╰─ ✓ tarefa atualizada!${T.r}');
+  _ln('  ${T.grn}${T.b}╰─ ✓ task updated!${T.r}');
   pausar(console);
 }
 
@@ -172,7 +172,7 @@ void telaBuscar(Console console, TodoManager m) {
   console.clearScreen();
   console.resetCursorPosition();
   _ln('');
-  _ln('  ${T.acc}${T.b}╭─ buscar${T.r}  ', newline: false);
+  _ln('  ${T.acc}${T.b}╭─ search${T.r}  ', newline: false);
   final busca = (console.readLine()?.toLowerCase().trim()) ?? '';
 
   if (busca.isEmpty) {
@@ -193,8 +193,8 @@ void telaBuscar(Console console, TodoManager m) {
 
     if (resultados.isEmpty) {
       console.clearScreen();
-      _ln('\n  ${T.red}  Nenhum resultado para: "$busca"${T.r}');
-      _ln('  ${T.fg2}  pressione qualquer tecla para voltar...${T.r}');
+      _ln('\n  ${T.red}  No results for: "$busca"${T.r}');
+      _ln('  ${T.fg2}  press any key to go back...${T.r}');
       console.readKey();
       break;
     }
@@ -204,7 +204,7 @@ void telaBuscar(Console console, TodoManager m) {
 
     console.clearScreen();
     console.resetCursorPosition();
-    _ln('\n  ${T.acc}${T.b}╭─ resultados para: "$busca"${T.r}');
+    _ln('\n  ${T.acc}${T.b}╭─ results for: "$busca"${T.r}');
     _ln('  ${T.fg2}├────────────────────────────────────────${T.r}');
 
     for (var i = 0; i < resultados.length; i++) {
@@ -218,7 +218,7 @@ void telaBuscar(Console console, TodoManager m) {
     }
 
     _ln('  ${T.fg2}├────────────────────────────────────────${T.r}');
-    _ln('  ${T.fg2}↑↓ mover  ${T.acc}ent${T.r} detalhes  ${T.acc}spc${T.r} status  ${T.acc}e${T.r} editar  ${T.acc}d${T.r} del  ${T.acc}q${T.r} sair${T.r}');
+    _ln('  ${T.fg2}↑↓ move  ${T.acc}ent${T.r} details  ${T.acc}spc${T.r} status  ${T.acc}e${T.r} edit  ${T.acc}d${T.r} del  ${T.acc}q${T.r} quit${T.r}');
 
     final key = console.readKey();
     final taskAtual = resultados[cursorBusca];
@@ -268,18 +268,18 @@ void telaBuscar(Console console, TodoManager m) {
 
 void telaEditarSimples(Console console, TodoManager m, Tasks t) {
   console.clearScreen();
-  _ln('\n  ${T.yel}${T.b}╭─ editando: ${t.titulo}${T.r}');
-  _ln('  ${T.fg2}│  deixe vazio para manter  ·  :q no título para cancelar${T.r}');
+  _ln('\n  ${T.yel}${T.b}╭─ editing: ${t.titulo}${T.r}');
+  _ln('  ${T.fg2}│  leave empty to keep  ·  :q in title to cancel${T.r}');
   _ln('  ${T.fg2}│${T.r}');
-  _ln('  ${T.fg2}│${T.r}  ${T.fg1}título${T.r}     ${T.cyn}▸${T.r}  ',
+  _ln('  ${T.fg2}│${T.r}  ${T.fg1}title${T.r}     ${T.cyn}▸${T.r}  ',
       newline: false);
   final novoTitulo = (console.readLine()?.trim()) ?? '';
   if (novoTitulo == ':q') return;
-  _ln('  ${T.fg2}│${T.r}  ${T.fg1}descrição${T.r}  ${T.cyn}▸${T.r}  ',
+  _ln('  ${T.fg2}│${T.r}  ${T.fg1}description${T.r}  ${T.cyn}▸${T.r}  ',
       newline: false);
   final novaDesc = (console.readLine()?.trim()) ?? '';
   final prioAtual = t.prioridade;
-  _ln('  ${T.fg2}│${T.r}  ${T.fg1}prioridade${T.r} ${T.cyn}▸${T.r}  ${T.fg2}[1]${T.r} ${T.red}alta${T.r}  ${T.fg2}[2]${T.r} ${T.yel}média${T.r}  ${T.fg2}[3]${T.r} ${T.cyn}baixa${T.r}  ${T.fg1}[Enter=$prioAtual]${T.r}  ',
+  _ln('  ${T.fg2}│${T.r}  ${T.fg1}priority${T.r} ${T.cyn}▸${T.r}  ${T.fg2}[1]${T.r} ${T.red}high${T.r}  ${T.fg2}[2]${T.r} ${T.yel}medium${T.r}  ${T.fg2}[3]${T.r} ${T.cyn}low${T.r}  ${T.fg1}[Enter=$prioAtual]${T.r}  ',
       newline: false);
   final pInput = (console.readLine()?.trim()) ?? '';
   final novaPrio = (int.tryParse(pInput) ?? prioAtual).clamp(1, 3);
@@ -298,27 +298,27 @@ void telaDetalhes(Console console, Tasks t) {
               ? T.yel
               : T.cyn);
   final status =
-      t.concluida ? '${T.grn}Concluída${T.r}' : '${T.red}Pendente${T.r}';
+      t.concluida ? '${T.grn}Completed${T.r}' : '${T.red}Pending${T.r}';
 
   _ln('');
-  _ln('  ${T.acc}${T.b}╭─ DETALHES DA TAREFA${T.r}');
+  _ln('  ${T.acc}${T.b}╭─ TASK DETAILS${T.r}');
   _ln('  ${T.fg2}│${T.r}');
-  _ln('  ${T.fg2}│${T.r}  ${T.fg1}Título:${T.r}    ${T.b}${t.titulo}${T.r}');
+  _ln('  ${T.fg2}│${T.r}  ${T.fg1}Title:${T.r}    ${T.b}${t.titulo}${T.r}');
   _ln('  ${T.fg2}│${T.r}  ${T.fg1}Status:${T.r}    $status');
-  _ln('  ${T.fg2}│${T.r}  ${T.fg1}Prioridade:${T.r} ${corPrio}${t.prioridade == 1 ? "Alta" : t.prioridade == 2 ? "Média" : "Baixa"}${T.r}');
-  _ln('  ${T.fg2}│${T.r}  ${T.fg1}Criada em:${T.r}  ${T.fg0}${t.dataCriacao.day}/${t.dataCriacao.month}/${t.dataCriacao.year}${T.r}');
+  _ln('  ${T.fg2}│${T.r}  ${T.fg1}Priority:${T.r} ${corPrio}${t.prioridade == 1 ? "High" : t.prioridade == 2 ? "Medium" : "Low"}${T.r}');
+  _ln('  ${T.fg2}│${T.r}  ${T.fg1}Created on:${T.r}  ${T.fg0}${t.dataCriacao.day}/${t.dataCriacao.month}/${t.dataCriacao.year}${T.r}');
   _ln('  ${T.fg2}│${T.r}');
-  _ln('  ${T.fg2}├─ DESCRIÇÃO${T.r}');
+  _ln('  ${T.fg2}├─ DESCRIPTION${T.r}');
   _ln('  ${T.fg2}│${T.r}');
 
   if (t.descricao.isEmpty) {
-    _ln('  ${T.fg2}│  (Sem descrição informada)${T.r}');
+    _ln('  ${T.fg2}│  (No description provided)${T.r}');
   } else {
     _ln('  ${T.fg0}${t.descricao}${T.r}');
   }
 
   _ln('  ${T.fg2}│${T.r}');
-  _ln('  ${T.acc}${T.b}╰─ [Enter ou Esc] para voltar${T.r}');
+  _ln('  ${T.acc}${T.b}╰─ [Enter or Esc] to go back${T.r}');
 
   console.readKey();
 }
@@ -327,14 +327,14 @@ bool confirmarDelete(Console console, String titulo) {
   console.clearScreen();
   console.resetCursorPosition();
   _ln('');
-  _ln('  ${T.red}${T.b}╭─ excluir tarefa${T.r}');
+  _ln('  ${T.red}${T.b}╭─ delete task${T.r}');
   _ln('  ${T.fg2}│${T.r}');
-  _ln('  ${T.fg2}│${T.r}  ${T.fg1}tarefa${T.r}  ${T.fg0}${_trunc(titulo, 36)}${T.r}');
+  _ln('  ${T.fg2}│${T.r}  ${T.fg1}task${T.r}  ${T.fg0}${_trunc(titulo, 36)}${T.r}');
   _ln('  ${T.fg2}│${T.r}');
-  _ln('  ${T.red}│${T.r}  ${T.fg1}confirmar exclusão?${T.r}  ${T.grn}[s]${T.r} sim  ${T.fg2}[Enter]${T.r} cancelar  ',
+  _ln('  ${T.red}│${T.r}  ${T.fg1}confirm deletion?${T.r}  ${T.grn}[y]${T.r} yes  ${T.fg2}[Enter]${T.r} cancel  ',
       newline: false);
   final resp = (console.readLine()?.trim().toLowerCase()) ?? '';
-  return resp == 's';
+  return resp == 'y';
 }
 
 void _ln(String s, {bool newline = true}) {
@@ -356,7 +356,7 @@ void voltarNav(Console console) {
 }
 
 void pausar(Console console) {
-  stdout.write('\n  ${T.fg2}pressione enter para continuar...${T.r}');
+  stdout.write('\n  ${T.fg2}press enter to continue...${T.r}');
   console.readLine();
 }
 
@@ -368,15 +368,15 @@ String _dd(int n) => n.toString().padLeft(2, '0');
 String _mes(int m) => [
       '',
       'jan',
-      'fev',
+      'feb',
       'mar',
-      'abr',
-      'mai',
+      'apr',
+      'may',
       'jun',
       'jul',
-      'ago',
-      'set',
-      'out',
+      'aug',
+      'sep',
+      'oct',
       'nov',
-      'dez'
+      'dec'
     ][m];

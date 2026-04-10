@@ -5,7 +5,7 @@ import 'package:TodoListManagerCLI/logic/todo_manager.dart';
 import 'package:TodoListManagerCLI/ui/render.dart';
 
 void main(List<String> arguments) {
-  const String version = '1.1.0'; 
+  const String version = '1.1.0';
 
   if (arguments.contains('--version') || arguments.contains('-v')) {
     print('TodoManagerCLI version: $version');
@@ -103,5 +103,5 @@ void main(List<String> arguments) {
   console.showCursor();
   console.clearScreen();
   console.resetCursorPosition();
-  print('${T.grn}${T.b}  ✓ Dados salvos. Até logo!${T.r}\n');
+  print('${T.grn}${T.b}  ✓ Saved data. Seeya!${T.r}\n');
 }
