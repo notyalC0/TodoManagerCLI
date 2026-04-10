@@ -6,7 +6,7 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [1.1.1] - 2026-04-10
 
 ### Changed
-- Switch language for english
+- English translation.
 
 ---
 
