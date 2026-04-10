@@ -1,131 +1,119 @@
-<h1 align="center" style="color: #C792EA;">📝 Interactive CLI Task Manager</h1>
+<h1 align="center">Interactive CLI Task Manager</h1>
+
+<p align="center">A modern, keyboard-driven task manager built entirely in Dart.</p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/v/release/notyalC0/TodoManagerCLI?style=for-the-badge&color=C792EA" alt="Release">
+  <img src="https://img.shields.io/badge/version-1.1.0-C792EA?style=for-the-badge" alt="Version">
   <img src="https://img.shields.io/github/stars/notyalC0/TodoManagerCLI?style=for-the-badge&color=89DDFF" alt="Stars">
   <img src="https://img.shields.io/badge/Dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white" alt="Dart">
+  <img src="https://img.shields.io/badge/license-MIT-C3E88D?style=for-the-badge" alt="License">
 </p>
-
-<p align="center" style="color: #CDD6F4; font-size: 1.1em;">
-  A modern, interactive, and highly polished task manager, developed entirely in
-  <span style="color: #89DDFF; font-weight: bold;">Dart</span>.
-</p>
-
-<hr style="border-color: #5A6080;">
-
-<h2 style="color: #89DDFF;">🚀 Features</h2>
-
-<ul style="color: #CDD6F4;">
-  <li><span style="color: #C792EA; font-weight: bold;">Interactive Navigation:</span> Smoothly browse your list using the <b>arrow keys</b> (<span style="color: #89DDFF;">↑</span> and <span style="color: #89DDFF;">↓</span>).</li>
-  <li><span style="color: #C792EA; font-weight: bold;">Visual Dashboard:</span> Graphical progress bar (<span style="color: #C3E88D;">█</span><span style="color: #5A6080;">░</span>), real-time statistics, and pagination (6 tasks at a time).</li>
-  <li><span style="color: #C792EA; font-weight: bold;">Priority System:</span> Classify as <span style="color: #F07178;">High (!)</span>, <span style="color: #FFCB6B;">Medium (–)</span>, or <span style="color: #89DDFF;">Low (↓)</span>.</li>
-  <li><span style="color: #C792EA; font-weight: bold;">Search & Filter:</span> Find tasks quickly by title or description.</li>
-  <li><span style="color: #C792EA; font-weight: bold;">Task Details:</span> View full task information in a dedicated details view.</li>
-  <li><span style="color: #C792EA; font-weight: bold;">Interactive Search Results:</span> After searching, navigate results and select a task to view or edit directly.</li>
-</ul>
-
-<hr style="border-color: #5A6080;">
-
-<h2 style="color: #89DDFF;">📦 Project Structure</h2>
-
-<pre style="background-color: #0D0E14; padding: 16px; border-radius: 8px; color: #CDD6F4; line-height: 1.5;">
-📦 <span style="color: #C792EA; font-weight: bold;">TO-DO-LIST-DART-CLI</span>
-<span style="color: #5A6080;">┣ 📂</span> <span style="color: #5A6080;">.dart_tool/</span>      <span style="color: #5A6080;"><i># Internal files and Dart cache</i></span>
-<span style="color: #5A6080;">┣ 📂</span> <span style="color: #5A6080;">.vscode/</span>         <span style="color: #5A6080;"><i># Editor settings</i></span>
-<span style="color: #5A6080;">┣ 📂</span> <span style="color: #89DDFF;">assets/</span>
-<span style="color: #5A6080;">┃ ┗ 🖼️</span> <span style="color: #CDD6F4;">screenshot.png</span> <span style="color: #5A6080;"><i># Images used in this documentation</i></span>
-<span style="color: #5A6080;">┣ 📂</span> <span style="color: #89DDFF;">bin/</span>
-<span style="color: #5A6080;">┃ ┗ 🎯</span> <span style="color: #C3E88D;">main.dart</span>      <span style="color: #5A6080;"><i># The heart of the CLI: Interface and Main Logic</i></span>
-<span style="color: #5A6080;">┣ 📂</span> <span style="color: #89DDFF;">lib/</span>
-<span style="color: #5A6080;">┃ ┣ 📂</span> <span style="color: #89DDFF;">core/</span>
-<span style="color: #5A6080;">┃ ┃ ┗ 📄</span> <span style="color: #CDD6F4;">database.dart</span>
-<span style="color: #5A6080;">┃ ┃ ┗ 📄</span> <span style="color: #CDD6F4;">theme.dart</span>
-<span style="color: #5A6080;">┃ ┣ 📂</span> <span style="color: #89DDFF;">logic/</span>
-<span style="color: #5A6080;">┃ ┃ ┗ 📄</span> <span style="color: #CDD6F4;">todo_manager.dart</span>
-<span style="color: #5A6080;">┃ ┣ 📂</span> <span style="color: #89DDFF;">models/</span>
-<span style="color: #5A6080;">┃ ┃ ┗ 📄</span> <span style="color: #CDD6F4;">tasks.dart</span>
-<span style="color: #5A6080;">┃ ┣ 📂</span> <span style="color: #89DDFF;">ui/</span>
-<span style="color: #5A6080;">┃ ┃ ┗ 📄</span> <span style="color: #CDD6F4;">render.dart</span>
-<span style="color: #5A6080;">┣ 📂</span> <span style="color: #89DDFF;">test/</span>
-<span style="color: #5A6080;">┃ ┗ 🧪</span> <span style="color: #CDD6F4;">test.dart</span>      <span style="color: #5A6080;"><i># Unit testing environment</i></span>
-<span style="color: #5A6080;">┣ 📄</span> <span style="color: #C792EA;">pubspec.yaml</span>     <span style="color: #5A6080;"><i># Settings, version, and dependencies (dart_console)</i></span>
-<span style="color: #5A6080;">┣ 📄</span> <span style="color: #CDD6F4;">pubspec.lock</span>     <span style="color: #5A6080;"><i># Dependency version locking</i></span>
-<span style="color: #5A6080;">┣ 📄</span> <span style="color: #CDD6F4;">README.md</span>        <span style="color: #5A6080;"><i># This wonderful documentation</i></span>
-<span style="color: #5A6080;">┗ 💾</span> <span style="color: #FFCB6B;">tarefas.json</span>     <span style="color: #5A6080;"><i># Your local database with saved tasks</i></span>
-</pre>
-
-<hr style="border-color: #5A6080;">
-
-<h2 style="color: #89DDFF;">🛠️ Installation & Usage</h2>
-
-<h3 style="color: #CDD6F4;">1. Installing Dependencies</h3>
-<p style="color: #CDD6F4;">In the terminal, run the command below in the project root:</p>
-<pre style="background-color: #0D0E14; padding: 12px; border-radius: 8px; color: #C3E88D;">dart pub get</pre>
-
-<h3 style="color: #CDD6F4;">2. Activating the Global Command</h3>
-<p style="color: #CDD6F4;">To run the program by typing only <code>todo</code> in any folder on your computer:</p>
-<pre style="background-color: #0D0E14; padding: 12px; border-radius: 8px; color: #C3E88D;">dart pub global activate --source path .</pre>
-
-<h3 style="color: #CDD6F4;">3. How to Use</h3>
-<p style="color: #CDD6F4;">Run the command below in any terminal to start the interface:</p>
-<pre style="background-color: #0D0E14; padding: 12px; border-radius: 8px; color: #89DDFF; font-weight: bold;">todo</pre>
-
-<hr style="border-color: #5A6080;">
-
-<h2 style="color: #89DDFF;">⌨️ Controls & Shortcuts</h2>
-<p style="color: #CDD6F4;">Navigate freely without having to press <code>Enter</code> at every step:</p>
-<ul style="color: #CDD6F4;">
-  <li><kbd>↑</kbd> / <kbd>↓</kbd> : <b>Move cursor</b> through the task list.</li>
-  <li><kbd>Space</kbd> : <b>Check/Uncheck</b> (Toggles selected task status).</li>
-  <li><kbd>a</kbd> : <b>Add</b> new task (title, description, and priority).</li>
-  <li><kbd>e</kbd> : <b>Edit</b> selected task (press <code>:q</code> in the title to cancel).</li>
-  <li><kbd>d</kbd> : <b>Delete</b> selected task (with safety confirmation).</li>
-  <li><kbd>f</kbd> : <b>Filter/Search</b> active tasks.</li>
-  <li><kbd>Enter</kbd> : <b>Details</b> selected task.</li>
-  <li><kbd>q</kbd> or <kbd>Esc</kbd> : <b>Exit</b> (Data is saved automatically).</li>
-</ul>
-
-<p style="color: #CDD6F4;">Ao usar <code>f</code> para filtrar/buscar, os resultados são navegáveis com as setas <kbd>↑</kbd>/<kbd>↓</kbd>; pressione <kbd>Enter</kbd> para ver os detalhes completos da tarefa selecionada ou <kbd>e</kbd> para editar diretamente a tarefa a partir dos resultados.</p>
-
-<hr style="border-color: #5A6080;">
-
-<h2 style="color: #89DDFF;">📝 Changelog</h2>
-<ul style="color: #CDD6F4;">
-  <li><b>08/04/2026 — Atualização:</b> Modularização do projeto (divisão em <code>lib/core</code>, <code>lib/logic</code>, <code>lib/models</code> e <code>lib/ui</code>).</li>
-  <li><b>08/04/2026 — Atualização:</b> Adicionada a visualização de detalhes da tarefa (detalhes completos acessíveis via <kbd>Enter</kbd>).</li>
-  <li><b>08/04/2026 — Atualização:</b> Busca aprimorada — resultados navegáveis, com possibilidade de selecionar e editar tarefas diretamente a partir dos resultados.</li>
-  <li><b>Dependências:</b> Nenhuma dependência nova introduzida nesta atualização.</li>
-</ul>
 
 <p align="center">
-  <img src="assets/screenshot.png" alt="App Demo in Terminal" width="600" style="border-radius: 8px; border: 2px solid #5A6080;">
+  <img src="assets/screenshot.png" alt="App demo in terminal" width="600">
 </p>
 
-<hr style="border-color: #5A6080;">
+---
 
-<h2 style="color: #89DDFF;">🤝 Project Usage & Contributions</h2>
-<p style="color: #CDD6F4;">
-  This is an open-source project! Feel free to <b>fork</b>, modify the code for your needs, or send a <b>Pull Request</b> with new features.
-</p>
+## Features
 
-<p style="color: #CDD6F4;">To run the project in development mode (without activating globally):</p>
-<pre style="background-color: #0D0E14; padding: 12px; border-radius: 8px; color: #C3E88D;">dart run bin/main.dart</pre>
+- **Interactive navigation** — browse tasks with arrow keys, no Enter required for most actions.
+- **Visual dashboard** — progress bar, real-time stats, and pagination (6 tasks per page).
+- **Priority system** — classify tasks as High (`!`), Medium (`–`), or Low (`↓`).
+- **Search & filter** — find tasks by title or description; results are fully navigable.
+- **Task details view** — open a dedicated view with the full task information.
+- **Local persistence** — tasks are saved automatically to a local JSON file on exit.
 
-<ul style="color: #CDD6F4;">
-  <li>Report bugs in the <span style="color: #C792EA;">Issues</span> tab.</li>
-  <li>Suggest new ideas for the terminal interface.</li>
-  <li>Improve code organization or add new tests.</li>
-</ul>
+---
 
-<hr style="border-color: #5A6080;">
+## Project structure
 
-<h2 style="color: #89DDFF;">📄 License</h2>
-<p style="color: #CDD6F4;">
-  This project is under the <b>MIT</b> license. This means you are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, provided you include the original copyright notice and license permission.
-</p>
-<p style="color: #CDD6F4;">Check the <code style="color: #FFCB6B;">LICENSE</code> file to read the full terms.</p>
+```
+TodoManagerCLI/
+├── bin/
+│   └── main.dart           # Entry point — interface and main logic
+├── lib/
+│   ├── core/
+│   │   ├── database.dart   # JSON persistence layer
+│   │   └── theme.dart      # Colors and terminal styling
+│   ├── logic/
+│   │   └── todo_manager.dart # Business logic (CRUD, filters)
+│   ├── models/
+│   │   └── tasks.dart      # Task data model
+│   └── ui/
+│       └── render.dart     # Terminal rendering
+├── test/
+│   └── test.dart           # Unit tests
+├── assets/
+│   └── screenshot.png
+├── tarefas.json             # Local task database (auto-generated)
+├── pubspec.yaml
+└── CHANGELOG.md
+```
+
+---
+
+## Installation
+
+### Prerequisites
+
+Make sure you have the [Dart SDK](https://dart.dev/get-dart) installed (version ≥ 3.0 recommended).
+
+### 1. Clone and install dependencies
+
+```bash
+git clone https://github.com/notyalC0/TodoManagerCLI
+cd TodoManagerCLI
+dart pub get
+```
+
+### 2. Run directly (development)
+
+```bash
+dart run bin/main.dart
+```
+
+### 3. Activate globally (optional)
+
+To run the app from anywhere by typing `todo`:
+
+```bash
+dart pub global activate --source path .
+todo
+```
+
+---
+
+## Controls
+
+| Key | Action |
+|-----|--------|
+| `↑` `↓` | Move cursor through the task list |
+| `Space` | Toggle task completion |
+| `Enter` | Open task details view |
+| `a` | Add a new task (title, description, priority) |
+| `e` | Edit selected task — type `:q` in the title field to cancel |
+| `d` | Delete selected task (requires confirmation) |
+| `f` | Filter/search tasks — navigate results with `↑`/`↓`, press `Enter` to view details or `e` to edit directly |
+| `q` / `Esc` | Exit — data is saved automatically |
+
+---
+
+## Contributing
+
+Contributions are welcome. To get started:
+
+1. Fork the repository and create a branch for your feature or fix.
+2. Run `dart test` to make sure existing tests pass.
+3. Open a pull request with a clear description of your changes.
+4. Report bugs or suggest improvements via the **Issues** tab.
+
+---
+
+## License
+
+This project is licensed under the **MIT License** — see the [`LICENSE`](LICENSE) file for details.
 
 <br>
-<p align="center" style="color: #5A6080; font-size: 0.9em;">
-  Developed by <b>notyalC</b> 🚀
-</p>
+
+<p align="center">Developed by <b>notyalC</b></p>
